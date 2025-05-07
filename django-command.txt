@@ -17,3 +17,24 @@
 
 7. 新增功能
 - python manage.py startapp app
+
+8. 設定setting.py
+- INSTALLED_APPS註冊app
+- LANGUAGE_CODE = "zh-Hant"
+- TIME_ZONE = "Asia/Taipei"
+
+9. 邏輯寫在views.py
+- 在todolist/urls.py 綁定route
+    path("",views.hello)
+
+10. 新增樣板templates
+- 新增目錄templates
+- settings.py 註冊templates
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": ["templates"],
+
+11. 新增templates\index.html
+- views.py
+  return render(request,"index.html")

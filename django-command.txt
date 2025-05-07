@@ -7,3 +7,13 @@
 
 4. 啟動Server
 - python manage.py runserver
+
+5. git init
+- 新增.gitignore
+- 將db跟__pycache__/忽略
+
+6. git add .
+- git commit -m "first init"
+
+7. 新增功能
+- python manage.py startapp app

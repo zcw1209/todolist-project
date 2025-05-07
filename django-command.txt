@@ -1,0 +1,9 @@
+1. pip install django
+
+2. django-admin
+
+3. 建立專案
+- django-admin startproject todolist . 避免進兩層
+
+4. 啟動Server
+- python manage.py runserver

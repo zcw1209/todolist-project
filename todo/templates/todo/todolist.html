@@ -12,7 +12,6 @@
             background-color: antiquewhite;
             width: 600px;
             margin: 12px auto;
-            border-radius: ;
         }
     </style>
 </head>
@@ -20,13 +19,16 @@
     <h1>代辦事項</h1>
     {% for todo in todos %}
         <div class="card">
-        <h2>{{todo.title}}</h2>
+        <h1>{{todo.id}}</h1>
+        <h2>
+            <a href="{% url 'viewtodo' todo.id %}">{{todo.title}}</a>
+        </h2>
         <small>{{todo.created}}</small>
         {% if todo.text %}
         <li>{{todo.text}}</li>
         {% endif %}
         {% if todo.important %}
-        <p>重要</p>
+        <p style="color: red;">重要</p>
         {% endif %}
         <hr>
         </div>

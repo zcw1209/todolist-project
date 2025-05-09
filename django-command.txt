@@ -38,3 +38,13 @@ TEMPLATES = [
 11. 新增templates\index.html
 - views.py
   return render(request,"index.html")
+
+
+12. 建立超級使用者
+- 同步資料表
+    - python manage.py migrate (同步)
+- python manage.py createsuperuser
+
+13. 新增資料表
+- python manage.py makemigrations (新增)
+- python manage.py migrate (同步)

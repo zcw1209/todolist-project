@@ -16,10 +16,10 @@ Including another URLconf
 """
 
 from django.urls import path
-from .views import todolist, viewtodo
+from .views import user_register, user_login
 
 urlpatterns = [
-    path("", todolist, name="todolist"),
-    path("view/<int:id>/", viewtodo, name="viewtodo"),
+    path("register/", user_register, name="register"),
+    path("login/", user_login, name="login"),
 ]
 # 這個寫法 吃的是這個 name="viewtodo" 重要

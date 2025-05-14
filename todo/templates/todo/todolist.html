@@ -1,40 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TodoList</title>
-    <style>
-        body{
-            text-align: center;
-        }
-        .card{
-            background-color: antiquewhite;
-            width: 600px;
-            margin: 12px auto;
-        }
-    </style>
-</head>
-<body>
-    {{user.username}}
-    {{user.email}}
+{% extends "base.html" %}
+{% block title %}
+代辦事項
+{% endblock %}
+{% block content %}
 
-    <h1>代辦事項</h1>
-    {% for todo in todos %}
-        <div class="card">
-        <h1>{{todo.id}}</h1>
-        <h2>
-            <a href="{% url 'viewtodo' todo.id %}">{{todo.title}}</a>
-        </h2>
-        <small>{{todo.created}}</small>
-        {% if todo.text %}
-        <li>{{todo.text}}</li>
-        {% endif %}
-        {% if todo.important %}
-        <p style="color: red;">重要</p>
-        {% endif %}
-        <hr>
-        </div>
-    {% endfor %}
-</body>
-</html>
+{{user.username}}
+{{user.email}}
+
+<h1>代辦事項</h1>
+{% for todo in todos %}
+    <div class="card">
+    <h1>{{todo.id}}</h1>
+    <h2>
+        <a href="{% url 'viewtodo' todo.id %}">{{todo.title}}</a>
+    </h2>
+    <small>{{todo.created}}</small>
+    {% if todo.text %}
+    <li>{{todo.text}}</li>
+    {% endif %}
+    {% if todo.important %}
+    <p style="color: red;">重要</p>
+    {% endif %}
+    <hr>
+    </div>
+{% endfor %}
+{% endblock %}

@@ -7,7 +7,7 @@ def todolist(request):
     user = request.user
 
     todos = Todo.objects.all()
-    todos = Todo.objects.filter(userid=user.id)
+    # todos = Todo.objects.filter(userid=user.id)
 
     print(todos)
     result = {"todos": todos, "user": user}

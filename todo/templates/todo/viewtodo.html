@@ -5,8 +5,17 @@
 {% block content %}
     <h1>單一事項</h1>
     {% if not todo %}
-    <h3 style="color: red;">編號錯誤，請重新輸入</h3>
+    <h3 style="color: red;">
+        編號錯誤，請重新輸入
+    </h3>
     {% else %}
-    {{todo}}
+    <h2>{{todo.title}}</h2>
     {% endif %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">更新</button>
+    </form>
+    {{message}}
 {% endblock %}

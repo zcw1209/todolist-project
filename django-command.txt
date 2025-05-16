@@ -46,5 +46,5 @@ TEMPLATES = [
 - python manage.py createsuperuser
 
 13. 新增資料表
-- python manage.py makemigrations (新增)
+- python manage.py makemigrations (新增或修改跟刪除)
 - python manage.py migrate (同步)

@@ -19,12 +19,12 @@
 {% for todo in todos %}
 <small>{{todo.created}}</small>
     <div class="card">
-    <h1>{{todo.id}}</h1>
+    <!-- <h1>{{todo.id}}</h1> -->
     <h2>
         <a href="{% url 'viewtodo' todo.id %}">{{todo.title}}</a>
     </h2>
     {% if todo.text %}
-    <li>{{todo.text}}</li>
+    <li>{{todo.text|linebreaks}}</li>
     {% endif %}
     {% if todo.important %}
     <p style="color: red;">重要</p>

@@ -10,15 +10,19 @@
     <style>
         body{
             text-align: center;
-            background-color: bisque;
+            background-color: rgb(241, 212, 131);
         }
 
         form{
-            width:600px;
+            width:800px;
             margin:0 auto;
             background-color: aliceblue;
             padding:12px;
             border-radius: 12px;
+        }
+
+        input{
+            text-align: center;
         }
 
         li{
@@ -30,14 +34,21 @@
             padding: 12px;
             text-align: left;
         }
-
+        .button{
+            background-color: aliceblue;
+            padding: 6px;
+            border-radius: 3px;
+            box-shadow: 12px;
+        }
     </style>
 </head>
 <body>
     <div id="nav-bar">
+        <a href="{% url 'todolist' %}">Home</a>
         {% if user.is_authenticated %}
             Login:{{user.username}}
             <a href="{% url 'logout' %}">Logout</a>
+            <a class="button" href="{% url 'createtodo' %}">Create</a>
         {% else %}
         <a href="{% url 'login' %}">Login</a>
         <a href="{% url 'register' %}">Register</a>

@@ -8,13 +8,21 @@
 {{user.email}}
 
 <h1>代辦事項</h1>
+<hr>
+
+{% if not todos %}
+<h2>請先登入或註冊。
+<a href="{% url 'login' %}">登入</a>
+<a href="{% url 'register' %}">註冊</a>
+</h2>
+{% endif %}
 {% for todo in todos %}
+<small>{{todo.created}}</small>
     <div class="card">
     <h1>{{todo.id}}</h1>
     <h2>
         <a href="{% url 'viewtodo' todo.id %}">{{todo.title}}</a>
     </h2>
-    <small>{{todo.created}}</small>
     {% if todo.text %}
     <li>{{todo.text}}</li>
     {% endif %}
@@ -23,5 +31,6 @@
     {% endif %}
     <hr>
     </div>
+
 {% endfor %}
 {% endblock %}

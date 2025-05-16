@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Todo
+from .forms import TodoForm
 
 
 # Create your views here.
@@ -21,3 +22,16 @@ def viewtodo(request, id):
         print(e)
 
     return render(request, "todo/viewtodo.html", {"todo": todo})
+
+
+def createtodo(request):
+    if request.method == "POST":
+        form = TodoForm(request.POST)
+        todo = form.save(commit=False)
+        todo.user = request.user
+        todo.save()
+    else:
+        form = TodoForm()
+
+    form = TodoForm()
+    return render(request, "todo/createtodo.html", {"form": form})

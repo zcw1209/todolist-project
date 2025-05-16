@@ -7,7 +7,7 @@
 {{user.username}}
 {{user.email}}
 
-<h1>代辦事項</h1>
+<h1>目前代辦事項</h1>
 <hr>
 
 {% if not todos %}
@@ -29,6 +29,14 @@
     {% if todo.important %}
     <p style="color: red;">重要</p>
     {% endif %}
+    
+    
+
+    {% if todo.date_completed %}
+    <small style="color: rgb(152, 216, 68);">完成時間:{{todo.date_completed}}</small>
+    {% endif %}
+    <a href="{% url 'viewtodo' todo.id %}">更新</a>
+    <a href="{% url 'deletetodo' todo.id %}" onclick="return confirm('確認是否刪除')">刪除</a>
     <hr>
     </div>
 

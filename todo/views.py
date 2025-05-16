@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Todo
 from .forms import TodoForm
+from datetime import datetime
 
 
 # Create your views here.
@@ -14,6 +15,13 @@ def todolist(request):
     return render(request, "todo/todolist.html", result)
 
 
+def deletetodo(request, id):
+    todo = Todo.objects.get(id=id)
+    todo.delete()
+    # return render(request, "todo/todolist.html")
+    return redirect("todolist")
+
+
 def viewtodo(request, id):
     todo = None
     form = None
@@ -25,6 +33,12 @@ def viewtodo(request, id):
             form = TodoForm(instance=todo)
         else:
             form = TodoForm(request.POST, instance=todo)
+            todo = form.save(commit=False)
+            if todo.completed:
+                todo.date_completed = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            else:
+                todo.date_completed = None
+
             form.save()
             message = "修改成功!"
 

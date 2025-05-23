@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document
+    <title>
         {% block title %}
         {% endblock %}
     </title>
     <style>
         body{
+            margin: 0;
+            padding: 0;
             text-align: center;
-            background-color: rgb(247, 244, 235);
+            background-color: antiquewhite;
         }
 
-        form{
-            width:800px;
-            margin:0 auto;
-            background-color: aliceblue;
-            padding:12px;
+        form{ 
+          
+            width: 400px;
+            margin: 24px auto;
+            background-color: aquamarine;
+            padding: 12px;
             border-radius: 12px;
         }
 
@@ -28,27 +31,59 @@
         li{
             list-style: none;
         }
-
+        
         #nav-bar{
-            background-color: rgb(156, 124, 185);
+            background-color: rgb(110, 110, 250);
             padding: 12px;
             text-align: left;
         }
+
+        a {
+        color: blue;
+        text-decoration: none;
+        }
+
+        a:hover {
+        color: red;
+        }
+
+        a:visited {
+        color: purple;
+        }
+
+        a:active {
+        color: rgb(255, 255, 255);
+        }
+
+        a:focus {
+        outline: 2px dashed gray;
+        }
+        
         .button{
             background-color: aliceblue;
             padding: 6px;
-            border-radius: 3px;
-            box-shadow: 12px;
+            border-radius: 3px;            
         }
+
+        .title{
+            background-color: white;
+            width: 300px;
+            padding: 12px;
+            border-radius: 6px;
+        }
+
     </style>
+
+{% block style %}
+{% endblock %}
 </head>
 <body>
     <div id="nav-bar">
         <a href="{% url 'todolist' %}">Home</a>
-        {% if user.is_authenticated %}
-            Login:{{user.username}}
-            <a href="{% url 'logout' %}">Logout</a>
-            <a class="button" href="{% url 'createtodo' %}">Create</a>
+        {%  if user.is_authenticated %}    
+            Login: {{ user.username }}
+            <a href="{% url 'logout' %}">Logout</a>   
+            <a  class="button" href="{% url 'createtodo' %}">Create</a>           
         {% else %}
         <a href="{% url 'login' %}">Login</a>
         <a href="{% url 'register' %}">Register</a>
@@ -57,6 +92,8 @@
     {% block content %}
     {% endblock %}
 
+
+    
 
 </body>
 </html>

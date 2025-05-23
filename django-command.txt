@@ -1,33 +1,31 @@
-1. pip install django
+1.pip install django
 
-2. django-admin
+2.建立專案
+- django-admin startproject todolist .
 
-3. 建立專案
-- django-admin startproject todolist . 避免進兩層
-
-4. 啟動Server
+3.啟動Server 
 - python manage.py runserver
 
-5. git init
+4.git init
 - 新增.gitignore
 - 將db跟__pycache__/忽略
 
-6. git add .
+5.git add . 
 - git commit -m "first init"
 
-7. 新增功能
+6.新增功能
 - python manage.py startapp app
 
-8. 設定setting.py
+7.設定settings.py
 - INSTALLED_APPS註冊app
 - LANGUAGE_CODE = "zh-Hant"
 - TIME_ZONE = "Asia/Taipei"
 
-9. 邏輯寫在views.py
+8.邏輯寫在views.py
 - 在todolist/urls.py 綁定route
-    path("",views.hello)
+    path("", views.hello)
 
-10. 新增樣板templates
+9.新增樣板
 - 新增目錄templates
 - settings.py 註冊templates
 TEMPLATES = [
@@ -35,16 +33,33 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": ["templates"],
 
-11. 新增templates\index.html
-- views.py
-  return render(request,"index.html")
+
+10.新增templates\index.html 
+- views.py 
+ return render(request,"index.html")
 
 
-12. 建立超級使用者
+11.建立超級使用者
 - 同步資料表
     - python manage.py migrate (同步)
 - python manage.py createsuperuser
 
-13. 新增資料表
+12.新增資料表
 - python manage.py makemigrations (新增或修改跟刪除)
 - python manage.py migrate (同步)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
